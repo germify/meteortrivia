@@ -1,0 +1,51 @@
+<template name="admin">
+    {{adminOnly}}
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="adminTitle">Admin<!-- Questions: {{questionCount}}--></h3>
+            {{#each questions}}
+                <div class="well">
+                    {{#if active}}
+                        <span style="color: green;">{{question}}</span>
+                    {{else}}
+                        <span style="color: red;">{{question}}</span>
+                    {{/if}}
+                    <div>
+                        {{_id}}
+                        <span class="moment">{{{questionMoment}}}</span>
+                    </div>
+                    <div class="adminLinks">
+                        [<a href="{{pathFor 'question'}}">View</a>]
+                        [<a href="{{pathFor 'edit'}}">Edit</a>]
+                        [<a href="#" class="deleteQuestion">Delete</a>]
+                        {{#if active}}
+                            [<a href="#" class="inactive">Active</a>]
+                        {{else}}
+                            [<a href="#" class="active">Inactive</a>]
+                        {{/if}}
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+
+        <!--<div class="col-md-6">-->
+            <!--<h3 class="adminTitle">Manage {{userCount}} Users</h3>-->
+            <!--{{#each users}}-->
+                <!--<div class="well">-->
+                    <!--<strong>{{username}}</strong>-->
+                    <!--<div class="moment">-->
+                        <!--Joined {{userMoment}}-->
+                    <!--</div>-->
+                    <!--<div class="adminLinks">-->
+                        <!--&lt;!&ndash;{{#if isInRole 'admin'}}&ndash;&gt;-->
+                            <!--&lt;!&ndash;[<a href="#" class="undoUserAdmin">Undo Admin</a>]&ndash;&gt;-->
+                        <!--&lt;!&ndash;{{else}}&ndash;&gt;-->
+                            <!--&lt;!&ndash;[<a href="#" class="makeUserAdmin">Make Admin</a>]&ndash;&gt;-->
+                        <!--&lt;!&ndash;{{/if}}&ndash;&gt;-->
+                        <!--[<a href="#" class="deleteUser">Delete</a>]-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--{{/each}}-->
+        <!--</div>-->
+    </div>
+</template>
