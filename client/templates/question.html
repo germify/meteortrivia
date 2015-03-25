@@ -1,0 +1,16 @@
+<template name="quiz">
+
+    <div class="message" style="display: none;"></div>
+    <div class="nextContainer" style="display: none;">{{{nextButton}}}</div>
+
+    <div class="jumbotron">
+
+        <div class="question">{{question}}</div>
+
+        {{#each answers}}
+            <button class="btn btn-primary btn-block btn-lg answer answer-padding" href="#" id="answer{{index}}">{{text}}</button>
+        {{/each}}
+
+    </div>
+
+</template>

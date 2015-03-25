@@ -1,0 +1,62 @@
+<template name="submitQuestions">
+
+    <form class="submitted-question">
+
+        <h1>Submit Question For Approval</h1>
+
+        <div class="form-group form-group-lg">
+            <input type="text" class="form-control" name="question" placeholder="Type your question here..."/>
+        </div>
+
+        <p>Please indicate which answer is correct by clicking on the corresponding radio button</p>
+
+        <div class="input-group answer-padding">
+            <span class="input-group-addon">
+              <input class="isChecked" type="radio" name="isAnswer" id="isAnswer1">
+            </span>
+            <input type="text" class="form-control" name="answer1" placeholder="First possible answer..."/>
+        </div>
+        <!-- /input-group -->
+
+        <div class="input-group answer-padding">
+            <span class="input-group-addon">
+              <input class="isChecked" type="radio" name="isAnswer" id="isAnswer2">
+            </span>
+            <input type="text" class="form-control" name="answer2" placeholder="Second possible answer..."/>
+        </div>
+        <!-- /input-group -->
+
+        <div class="input-group answer-padding">
+            <span class="input-group-addon">
+              <input class="isChecked" type="radio" name="isAnswer" id="isAnswer3">
+            </span>
+            <input type="text" class="form-control" name="answer3" placeholder="Third possible answer..."/>
+        </div>
+        <!-- /input-group -->
+
+        <div class="input-group submit-padding">
+            <span class="input-group-addon">
+              <input class="isChecked" type="radio" name="isAnswer" id="isAnswer4">
+            </span>
+            <input type="text" class="form-control" name="answer4" placeholder="Fourth possible answer..."/>
+        </div>
+        <!-- /input-group -->
+
+        <input type="submit" class="btn btn-primary btn-block btn-lg" id="submit"/>
+
+        <h2>Your Submitted Questions</h2>
+        <ol>
+            {{#each questions}}
+                <li>
+                    {{question}}
+                    {{#if active}}
+                        (<span style="color: green;">Currently active</span>)
+                    {{/if}}
+                </li>
+            {{/each}}
+        </ol>
+
+    </form>
+
+</template>
+
