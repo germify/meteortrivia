@@ -1,12 +1,14 @@
 <head>
-  <title>Metatrivia</title>
+  <title>Meteortrivia</title>
 </head>
 
 <template name="main">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                {{> header}}
+                <header>
+                    {{> header }}
+                </header>
 
                 {{#if currentUser}}
                     {{> yield}}

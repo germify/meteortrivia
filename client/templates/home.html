@@ -1,15 +1,13 @@
-<template name="homePage">
-    {{goatse}}
-    <div class="home page">
-		
-	    <div class="jumbotron">
-	      <div class="container">
-	        <h1 class="metatrivia-padding">Metatrivia</h1>
-	        <p><a class="btn btn-primary btn-lg start" href="#" role="button">Start a game &raquo;</a></p>
-	        <p><a class="btn btn-primary btn-lg" href="/submit" role="button">Submit a question &raquo;</a></p>
-              <p><a class="btn btn-primary btn-lg" href="/admin" role="button">Go to admin &raquo;</a></p>
-	      </div>
-	    </div>
+<template name="home">
 
-	</div>
+    <div class="jumbotron">
+
+        <div class="homepadding"><a class="btn btn-primary btn-block btn-lg" href="{{pathFor 'play'}}" role="button">PLAY NOW</a></div>
+
+        <div class="video-container" style="margin-bottom:10px;">
+            <iframe id="player" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/XSdW3ew_e-A?autoplay=1&controls=0&showinfo=0&modestbranding=1&rel=0" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+    </div>
+
 </template>

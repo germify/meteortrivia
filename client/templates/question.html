@@ -1,14 +1,14 @@
-<template name="quiz">
+<template name="question">
 
     <div class="message" style="display: none;"></div>
-    <div class="nextContainer" style="display: none;">{{{nextButton}}}</div>
+    <div class="nextContainer" style="display: none;"></div>
 
     <div class="jumbotron">
 
         <div class="question">{{question}}</div>
 
         {{#each answers}}
-            <button class="btn btn-primary btn-block btn-lg answer answer-padding" href="#" id="answer{{index}}">{{text}}</button>
+            <button class="btn btn-primary btn-block btn-lg answer answer-padding" id="answer{{index}}">{{text}}</button>
         {{/each}}
 
     </div>

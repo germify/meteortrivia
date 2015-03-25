@@ -1,62 +1,61 @@
-<template name="submitQuestions">
+<template name="submit">
 
-    <form class="submitted-question">
+    <div id="thanksMSG"></div>
 
-        <h1>Submit Question For Approval</h1>
+    <div class="well well-padding">
+        <form class="submit-question">
 
-        <div class="form-group form-group-lg">
-            <input type="text" class="form-control" name="question" placeholder="Type your question here..."/>
-        </div>
+            <h2>Submit A Question</h2>
 
-        <p>Please indicate which answer is correct by clicking on the corresponding radio button</p>
+            <div class="form-group form-group-lg">
+                <input type="text" class="form-control question-padding" name="question" value="{{question}}" placeholder="Enter your question..."/>
+                <div id="questionMSG"></div>
+            </div>
 
-        <div class="input-group answer-padding">
-            <span class="input-group-addon">
-              <input class="isChecked" type="radio" name="isAnswer" id="isAnswer1">
-            </span>
-            <input type="text" class="form-control" name="answer1" placeholder="First possible answer..."/>
-        </div>
-        <!-- /input-group -->
+            <p>Please indicate which answer is correct by clicking on the corresponding radio button</p>
+            <!-- update -->
+            {{#if answers}}
+                {{#each answers}}
+                    <div class="input-group answer-padding">
+                        <span class="input-group-addon">
+                          <input class="isChecked" type="radio" name="isAnswer{{index}}" id="isAnswer{{index}}" {{answerIsChecked}}>
+                        </span>
+                        <input type="text" class="form-control" name="answer{{index}}" id="answer{{index}}" value="{{text}}" placeholder="Enter your answer"/>
+                    </div>
+                {{/each}}
+            <!-- insert -->
+            {{else}}
+                {{#each addAnswers}}
+                    <div class="input-group answer-padding">
+                        <span class="input-group-addon">
+                          <input class="isChecked" type="radio" name="isAnswer{{index}}" id="isAnswer{{index}}" {{answerIsChecked}}>
+                        </span>
+                        <input type="text" class="form-control" name="answer{{index}}" id="answer{{index}}" value="{{text}}" placeholder="{{placeholder}}"/>
+                    </div>
+                {{/each}}
+            {{/if}}
+            <div id="answerMSG"></div>
+            <div id="isAnswersMSG"></div>
 
-        <div class="input-group answer-padding">
-            <span class="input-group-addon">
-              <input class="isChecked" type="radio" name="isAnswer" id="isAnswer2">
-            </span>
-            <input type="text" class="form-control" name="answer2" placeholder="Second possible answer..."/>
-        </div>
-        <!-- /input-group -->
+            <div><input type="submit" class="btn btn-primary btn-block btn-lg" id="submit"/></div>
 
-        <div class="input-group answer-padding">
-            <span class="input-group-addon">
-              <input class="isChecked" type="radio" name="isAnswer" id="isAnswer3">
-            </span>
-            <input type="text" class="form-control" name="answer3" placeholder="Third possible answer..."/>
-        </div>
-        <!-- /input-group -->
+        </form>
+    </div>
 
-        <div class="input-group submit-padding">
-            <span class="input-group-addon">
-              <input class="isChecked" type="radio" name="isAnswer" id="isAnswer4">
-            </span>
-            <input type="text" class="form-control" name="answer4" placeholder="Fourth possible answer..."/>
-        </div>
-        <!-- /input-group -->
-
-        <input type="submit" class="btn btn-primary btn-block btn-lg" id="submit"/>
-
-        <h2>Your Submitted Questions</h2>
-        <ol>
-            {{#each questions}}
-                <li>
-                    {{question}}
-                    {{#if active}}
-                        (<span style="color: green;">Currently active</span>)
-                    {{/if}}
-                </li>
-            {{/each}}
-        </ol>
-
-    </form>
+    <h2>Your Questions</h2>
+    <ol>
+        {{#each questions}}
+            <li>
+                {{#if active}}
+                    (<span style="color: green;">Approved</span>)
+                {{else}}
+                    (<span style="color: red;">Not Approved</span>)
+                {{/if}}
+                {{question}}
+                <span class="moment">Submitted {{questionMoment}}</span>
+            </li>
+        {{/each}}
+    </ol>
 
 </template>
 
